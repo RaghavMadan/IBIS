@@ -1,0 +1,31 @@
+# ROI-specific settings
+
+roi:
+  default_roi: "MFG"
+  available_rois: ["MFG", "SFG", "IFG", "STG", "MTG", "ITG"]
+
+masks:
+  mask_dir: "input/masks"
+  mask_suffix: "_combined_bin_mask.nii"
+  mask_format: ".nii"
+
+coordinates:
+  output_columns: ["X", "Y", "Z", "Intensity", "sub.id"]
+  coordinate_system: "voxel"
+  precision: 3
+
+intensity:
+  normalize: false
+  scale_factor: 1.0
+  min_threshold: 0
+  max_threshold: null
+
+naming:
+  coordinate_file_pattern: "{subject_id}_coords.csv"
+  combined_file_pattern: "{subject_id}_combined.csv"
+
+quality_control:
+  min_coordinates: 10
+  max_coordinates: 100000
+  check_coordinate_range: true
+  coordinate_range: [0, 256]

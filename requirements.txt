@@ -1,0 +1,14 @@
+# IBIS (Integrated Brain Information System) — Python dependencies
+# Python 3.7+
+
+numpy>=1.21.0
+pandas>=1.3.0
+nibabel>=3.2.0
+nilearn>=0.9.0
+scikit-learn>=1.0.0
+scipy>=1.7.0
+joblib>=1.1.0
+PyYAML>=6.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+tqdm>=4.62.0

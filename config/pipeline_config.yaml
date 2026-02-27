@@ -1,0 +1,63 @@
+# IBIS (Integrated Brain Information System) — Main configuration
+
+pipeline:
+  name: "IBIS"
+  version: "1.0.0"
+  description: "Integrated Brain Information System — Neuroimaging Pipeline for Covariate Extraction"
+
+paths:
+  input_dir: "input"
+  output_dir: "output"
+  logs_dir: "output/logs"
+  temp_dir: "temp"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "pipeline.log"
+  console: true
+
+processing:
+  n_jobs: -1
+  memory_limit: "4GB"
+  chunk_size: 1000
+
+roi_extraction:
+  input_formats: [".nii.gz", ".nii", ".csv"]
+  output_format: ".csv"
+  coordinate_columns: ["X", "Y", "Z"]
+  intensity_column: "Intensity"
+  subject_id_pattern: r"(\d{4})"
+
+buffer_zone:
+  default_radius: 5.0
+  allow_overlap: false
+  mask_img: null
+  target_affine: null
+  target_shape: null
+
+variable_extraction:
+  edt:
+    enabled: true
+    input_suffix: "_masked.nii.gz"
+    output_prefix: "v1_edt_"
+  var:
+    enabled: true
+    input_formats: [".nii.gz", ".nii"]
+    output_prefix: "var_"
+
+consolidation:
+  remove_duplicates: true
+  handle_missing: "drop"
+  fill_value: 0.0
+  output_format: ".csv"
+
+quality_control:
+  min_voxels: 100
+  max_missing_ratio: 0.1
+  intensity_range: [0, 1000]
+
+performance:
+  use_memory_mapping: true
+  cache_dir: "cache"
+  cleanup_temp: true

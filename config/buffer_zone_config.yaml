@@ -1,0 +1,39 @@
+# Buffer zone and spherical masker settings
+
+spherical_masker:
+  radius: 5.0
+  allow_overlap: false
+  mask_img: null
+  target_affine: null
+  target_shape: null
+  smoothing_fwhm: null
+  standardize: false
+  detrend: false
+
+buffer_zone:
+  extract_mode: "mean"
+  radius_options: [3.0, 5.0, 7.0, 10.0]
+  overlap_threshold: 0.1
+
+coordinates:
+  input_format: "csv"
+  coordinate_columns: ["X", "Y", "Z"]
+  subject_id_column: "sub.id"
+  coordinate_system: "voxel"
+
+output:
+  format: "csv"
+  include_coordinates: true
+  include_radius: true
+  precision: 6
+
+performance:
+  n_jobs: -1
+  memory_limit: "2GB"
+  chunk_size: 500
+
+quality_control:
+  min_sphere_voxels: 10
+  max_sphere_voxels: 10000
+  check_sphere_quality: true
+  quality_threshold: 0.8

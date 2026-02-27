@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Pipeline outputs and data
+output/
+!output/.gitkeep
+logs/
+*.log
+input/*.nii.gz
+input/*.nii
+input/**/*.csv
+input/**/*.nii*
+cache/
+temp/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+*~
+*.swp
+*.swo
+
+# Optional: keep input structure, ignore contents
+# Uncomment if you want to track empty input subdirs only:
+# input/coordinates/*
+# input/images/*
+# input/masks/*
+# input/QNP_vox_coords/*
