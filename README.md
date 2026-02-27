@@ -1,6 +1,6 @@
 # IBIS
 
-**IBIS** (Integrated Brain Information System) is a modular neuroimaging pipeline for extracting and consolidating brain imaging covariates (ROI voxels, buffer zones, EDT, variance) from NIfTI data. Designed for use in prediction and machine-learning workflows.
+**IBIS** (Integrated Brain Information System) is a modular neuroimaging pipeline for extracting and consolidating brain imaging covariates (ROI voxels, buffer zones, EDT) from group averaged brain maps (NIFTI). Designed for use in neuroimaging based computational modeling approaches.
 
 ## Overview
 
@@ -163,20 +163,3 @@ MIT. See [LICENSE](LICENSE).
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## Publishing to GitHub
-
-To use IBIS as a standalone repo (e.g. on your Desktop):
-
-1. Copy the `IBIS` folder to your desired location, then:
-   ```bash
-   cd IBIS
-   git init
-   git add .
-   git commit -m "Initial commit: IBIS (Integrated Brain Information System)"
-   git remote add origin https://github.com/YOUR_USERNAME/IBIS.git
-   git branch -M main
-   git push -u origin main
-   ```
-2. `.gitignore` excludes `output/` and common data under `input/` so large files are not committed.
-
